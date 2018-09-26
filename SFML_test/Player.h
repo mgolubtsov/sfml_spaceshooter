@@ -9,6 +9,7 @@ private:
 
 	sf::Vector2f playerCenter;
 	
+
 	int shootTimer;
 	int damageTimer;
 	int shootTimerMax;
@@ -22,6 +23,9 @@ private:
 	std::vector<Bullet> bullets;
 
 	int controls[5];
+	sf::Vector2f currentVelocity;
+	float maxVelocity;
+	float acceleration;
 
 	int level;
 	int exp;

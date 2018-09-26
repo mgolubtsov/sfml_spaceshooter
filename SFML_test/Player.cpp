@@ -27,6 +27,9 @@ Player::Player(sf::Texture* texture, sf::Texture *bullet_texture,
 	this->controls[controls::RIGHT] = RIGHT;
 	this->controls[controls::SHOOT] = SHOOT;
 
+	this->maxVelocity = 20.f;
+	this->acceleration = 1.f;
+
 	//Player::playerNr++;
 	this->playerNr = Player::players;
 	Player::players++;
@@ -64,11 +67,8 @@ void Player::Movement()
 		this->sprite.move(10.f, 0.f);
 		std::cout << "d" << std::endl;
 	}
-	/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->controls[controls::SHOOT])) && this->shootTimer >= this->shootTimerMax)
-	{
-		this->bullets.push_back(Bullet(bullet_texture, this->sprite.getPosition()));
-		std::cout << "shoot" << std::endl;
-	}*/
+	
+	this->sprite.move(this->currentVelocity);
 }
 
 void Player::Draw(sf::RenderTarget& target)
